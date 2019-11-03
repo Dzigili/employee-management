@@ -11,7 +11,7 @@
             <div class="page-breadcrumb">
                 <div class="row">
                     <div class="col-12 d-flex no-block align-items-center">
-                        <h4 class="page-title">Admin Manager</h4>
+                        <h4 class="page-title">Menadzment zaposlenih</h4>
                         <div class="ml-auto text-right">
                             <nav aria-label="breadcrumb">
                                 <ol class="breadcrumb">
@@ -28,20 +28,29 @@
                 <div class="row">
                     <div class="col-md-12">
                         <div class="card">
+                            <div class="card-body">
+                                <a href="<?php echo e(route('user.create')); ?>" class="btn btn-md btn-success">Dodaj novog zaposlenog</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="card">
                             <form action="{{route('user.search')}}" method="GET" class="form-horizontal">
                                 <div class="card-body">
-                                    <h4 class="card-title">Search</h4>
+                                    <h4 class="card-title">Pretraga</h4>
                                     <div class="form-group row">
-                                        <label class="col-sm-3 text-right control-label col-form-label">Search by employee name</label>
+                                        <label class="col-sm-3 text-right control-label col-form-label">Pretraga po imenu</label>
                                         <div class="col-sm-9">
-                                            <input type="text" name="search" class="form-control" id="fname" placeholder="Employee name">
+                                            <input type="text" name="search" class="form-control" id="fname" placeholder="Ime zaposlenog">
                                         </div>
                                     </div>
                                 </div>
                                 <div class="border-top">
                                     <div class="card-body">
-                                        <button type="submit" class="btn btn-success">Search</button>
-                                        <a href="{{route('user')}}" class="btn btn-md btn-danger">Clear</a>
+                                        <button type="submit" class="btn btn-success">Pretraga</button>
+                                        <a href="{{route('user')}}" class="btn btn-md btn-danger">Obrisi</a>
                                     </div>
                                 </div>
                             </form>
@@ -60,26 +69,21 @@
                                 <table id="zero_config" class="table table-striped table-bordered">
                                 <thead>
                                 <tr>
-                                    <th>S.N</th>
-                                    <th>Username</th>
-                                    <th>Image</th>
-                                    <th>Role</th>
-                                    <th>Email</th>
-                                    <th>Leaves count</th>
-                                    <th>Action</th>
+                                    <th>Redni broj</th>
+                                    <th>Ime i prezime</th>
+                                    <th>Broj telefona</th>
+                                    <th>Akcije</th>
                                 </tr>
                                 </thead>
                                 <tbody>
                                 @foreach($users as $user)
+                                    @if ($user->role === "admin")
+                                        @continue
+                                    @endif
                                     <tr>
-                                        <th>{{$loop->index+1}}</th>
-                                        <td>{{$user->username}}</td>
-                                        <td><img src="{{ asset('uploads/gallery/' . $user->image) }}" width="80px" height="80px" alt="Image"> </td>
-                                        <td>{{$user->role}}</td>
-                                        <td>{{$user->email}}</td>
-                                        <td>
-                                            {{$user->approve_leave_count}}
-                                        </td>
+                                        <th>{{$user->id}}</th>
+                                        <td>{{$user->first_name}} {{$user->last_name}}</td>
+                                        <td>{{$user->phone_number}}</td>
                                         <td>
                                             <button type="button"
                                                     username="{{$user->username}}"
@@ -94,14 +98,12 @@
                                                     job_type="{{$user->job_type}}"
                                                     city="{{$user->city}}"
                                                     age="{{$user->age}}"
-                                                    class="view-data btn btn-sm btn-success">View</button>
-                                            <a href="{{route('user.edit',$user->id)}}" class="btn btn-sm btn-dark">Edit</a>
-                                            {{--<a href="{{route('managesalary.detail',$user->id)}}" class="btn btn-sm btn-warning">Payment</a>--}}
-                                            <a href="{{route('managesalary.detail',$user->id)}}" class="btn btn-sm btn-warning">Payment</a>
+                                                    class="view-data btn btn-sm btn-success">Pogledaj detalje</button>
+                                            <a href="{{route('user.edit',$user->id)}}" class="btn btn-sm btn-dark">Izmeni</a>
                                             <form id="delete-form-{{ $user->id }}" action="{{route('user.delete',$user->id)}}" method="put">
                                                 @csrf
                                                 @method('DELETE')
-                                                <button type="button" onclick="deletePost({{ $user->id }})" class="btn btn-sm btn-danger">Delete</button>
+                                                <button type="button" onclick="deletePost({{ $user->id }})" class="btn btn-sm btn-danger">Obrisi</button>
                                             </form>
                                         </td>
                                     </tr>
@@ -218,7 +220,7 @@
                     {{--@endsection--}}
 
             <footer class="footer text-center">
-                All Rights Reserved by Khoz Informatics Pvt. Ltd. Designed and Developed by <a href="https://khozinfo.com/">Khozinfo</a>.
+        
             </footer>
         </div>
         </div>

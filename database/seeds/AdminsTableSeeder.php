@@ -12,14 +12,14 @@ class AdminsTableSeeder extends Seeder
     public function run()
     {
         DB::table('admins')->insert([
-           'created_at' => \Carbon\Carbon::now(),
-           'username' => 'ganesh',
+            'created_at' => \Carbon\Carbon::now(),
+            'username' => 'dzigi',
             'image' => '',
-            'first_name' => 'ganesh',
-            'last_name' => 'khadka',
-            'email' => 'ganesh46@gmail.com',
+            'first_name' => 'Igor',
+            'last_name' => 'Vujkovic',
+            'email' => 'igorvujkovic@gmail.com',
             'password' => bcrypt('admin123'),
-            'status' => '1',
+            'status' => '1'
         ]);
     }
 }

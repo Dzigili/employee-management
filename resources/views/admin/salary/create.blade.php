@@ -67,7 +67,6 @@
             </div>
         </div>
         <footer class="footer text-center">
-            All Rights Reserved by Khoz Informatics Pvt. Ltd. Designed and Developed by <a href="https://khozinfo.com/">Khozinfo</a>.
         </footer>
     </div>
 

@@ -16,11 +16,11 @@ class ShiftController extends Controller
      */
     public function index()
     {
-        if(!Gate::allows('isAdmin')){
+        if (!Gate::allows('isAdmin')) {
             abort(401);
         }
         $shifts = Shift::paginate(5);
-        return view('admin.shift.index',compact('shifts'));
+        return view('admin.shift.index', compact('shifts'));
     }
 
     /**
@@ -30,7 +30,7 @@ class ShiftController extends Controller
      */
     public function create()
     {
-        if(!Gate::allows('isAdmin')){
+        if (!Gate::allows('isAdmin')) {
             abort(401);
         }
         return view('admin.shift.create');
@@ -39,28 +39,32 @@ class ShiftController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
     {
-        if(!Gate::allows('isAdmin')){
+        if (!Gate::allows('isAdmin')) {
             abort(401);
         }
-        $request -> validate([
-            'shift' => 'required',
-        ]);
+        $request->validate(
+            [
+                'shift' => 'required',
+            ]
+        );
         $shift = new Shift();
-        $shift -> shift = $request -> shift;
-        $shift -> save();
-        Toastr::success('Shift successfully added!','Success');
+        $shift->shift = $request->shift;
+        $shift->start = $request->start;
+        $shift->end = $request->end;
+        $shift->save();
+        Toastr::success('Uspesno ste dodali smenu!', 'Success');
         return redirect()->route('shift');
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Shift  $shift
+     * @param \App\Shift $shift
      * @return \Illuminate\Http\Response
      */
     public function show(Shift $shift)
@@ -71,54 +75,58 @@ class ShiftController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Shift  $shift
+     * @param \App\Shift $shift
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
     {
-        if(!Gate::allows('isAdmin')){
+        if (!Gate::allows('isAdmin')) {
             abort(401);
         }
         $shift = Shift::find($id);
-        return view('admin.shift.edit',compact('shift'));
+        return view('admin.shift.edit', compact('shift'));
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Shift  $shift
+     * @param \Illuminate\Http\Request $request
+     * @param \App\Shift $shift
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
     {
-        if(!Gate::allows('isAdmin')){
+        if (!Gate::allows('isAdmin')) {
             abort(401);
         }
-        $request -> validate([
-           'shift' => 'required',
-        ]);
+        $request->validate(
+            [
+                'shift' => 'required',
+            ]
+        );
         $shift = Shift::find($id);
-        $shift -> shift = $request -> shift;
-        $shift -> save();
-        Toastr::success('Shift successfully updated!','Success');
+        $shift->shift = $request->shift;
+        $shift->start = $request->start;
+        $shift->end = $request->end;
+        $shift->save();
+        Toastr::success('Uspesno ste izmenili smenu', 'Success');
         return redirect()->route('shift');
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Shift  $shift
+     * @param \App\Shift $shift
      * @return \Illuminate\Http\Response
      */
     public function delete($id)
     {
-        if(!Gate::allows('isAdmin')){
+        if (!Gate::allows('isAdmin')) {
             abort(401);
         }
         $shift = Shift::find($id);
-        $shift -> delete();
-        Toastr::error('Shift successfully deleted!','Deleted');
+        $shift->delete();
+        Toastr::error('Smena je usoesno izbrisana!', 'Deleted');
         return redirect()->route('shift');
     }
 }

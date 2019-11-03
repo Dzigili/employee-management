@@ -20,12 +20,11 @@
         <div class="page-breadcrumb">
             <div class="row">
                 <div class="col-12 d-flex no-block align-items-center">
-                    <h4 class="page-title">Leave Management</h4>
                     <div class="ml-auto text-right">
                         <nav aria-label="breadcrumb">
                             <ol class="breadcrumb">
-                                <li class="breadcrumb-item"><a href="{{route('dashboard')}}">Home</a></li>
-                                <li class="breadcrumb-item active" aria-current="page"><a href="{{route('leave.create')}}">Leave</a></li>
+                                <li class="breadcrumb-item"><a href="{{route('dashboard')}}">Početna</a></li>
+                                <li class="breadcrumb-item active" aria-current="page"><a href="{{route('leave.create')}}">Zahtev za slobodne dane</a></li>
                             </ol>
                         </nav>
                     </div>
@@ -41,15 +40,15 @@
                         <form action="{{route('leave.store')}}" method="post" class="form-horizontal">
                             @csrf
                             <div class="card-body">
-                                <h4 class="card-title">Apply Leave</h4>
+                                <h4 class="card-title">Zahtev za slobodan dan</h4>
                                 <div class="form-group row">
-                                    <label for="fname" class="col-sm-3 text-right control-label col-form-label">Leave type</label>
+                                    <label for="fname" class="col-sm-3 text-right control-label col-form-label">Tip (slava, bolovanje ...)</label>
                                     <div class="col-sm-9">
-                                        <input type="text" name="leave_type" class="form-control" id="fname" placeholder="Leave type">
+                                        <input type="text" name="leave_type" class="form-control" id="leave_type" placeholder="Tip">
                                     </div>
                                 </div>
                                 <div class="form-group row">
-                                    <label for="lname" class="col-sm-3 text-right control-label col-form-label">Date from</label>
+                                    <label for="lname" class="col-sm-3 text-right control-label col-form-label">Od do</label>
                                     <div class="col-sm-4">
                                         <input type="date" min="{{date('Y-m-d')}}" name="date_from" class="form-control" id="FromDate">
                                     </div>
@@ -58,15 +57,15 @@
                                     </div>
                                 </div>
                                 <div class="form-group row">
-                                    <label for="fname" class="col-sm-3 text-right control-label col-form-label">Days</label>
+                                    <label for="fname" class="col-sm-3 text-right control-label col-form-label">Broj dana</label>
                                     <div class="col-sm-9">
-                                        <input type="text" name="days" class="form-control" id="TotalDays" placeholder="Number of leave days">
+                                        <input type="text" name="days" class="form-control" id="TotalDays" placeholder="Broj slobodnih dana" readonly>
                                     </div>
                                 </div>
                                 <div class="form-group row">
-                                    <label for="fname" class="col-sm-3 text-right control-label col-form-label">Reason</label>
+                                    <label for="fname" class="col-sm-3 text-right control-label col-form-label">Razlog</label>
                                     <div class="col-sm-9">
-                                        <textarea type="text" name="reason" class="form-control" placeholder="Reason">
+                                        <textarea type="text" name="reason" class="form-control" placeholder="Razlog">
                                         </textarea></div>
                                 </div>
                             </div>
@@ -81,7 +80,7 @@
             </div>
         </div>
         <footer class="footer text-center">
-            All Rights Reserved by Khoz Informatics Pvt. Ltd. Designed and Developed by <a href="https://khozinfo.com/">Khozinfo</a>.
+
         </footer>
 
     </div>

@@ -33,6 +33,7 @@ class CreateUsersTable extends Migration
             $table->string('job_type');
             $table->string('city');
             $table->bigInteger('age');
+            $table->smallInteger('job_id');
             $table->rememberToken();
             $table->timestamps();
         });

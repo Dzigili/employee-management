@@ -22,8 +22,8 @@
                     <div class="ml-auto text-right">
                         <nav aria-label="breadcrumb">
                             <ol class="breadcrumb">
-                                <li class="breadcrumb-item"><a href="{{route('dashboard')}}">Home</a></li>
-                                <li class="breadcrumb-item active" aria-current="page"><a href="{{route('employee')}}">Employee</a></li>
+                                <li class="breadcrumb-item"><a href="{{route('dashboard')}}">Pocetna</a></li>
+                                <li class="breadcrumb-item active" aria-current="page"><a href="{{route('employee')}}">Zaposleni</a></li>
                             </ol>
                         </nav>
                     </div>
@@ -39,41 +39,31 @@
                             <div class="card-body">
                                 <h4 class="card-title">Add Employee</h4>
                                 <div class="form-group row">
-                                    <label for="fname" class="col-sm-3 text-right control-label col-form-label">First name</label>
+                                    <label for="fname" class="col-sm-3 text-right control-label col-form-label">Ime</label>
                                     <div class="col-sm-9">
-                                        <input type="text" name="fname" class="form-control" id="username" placeholder="Enter a first name">
+                                        <input type="text" name="fname" class="form-control" id="username" placeholder="Unesite ime">
                                     </div>
                                 </div>
                                 <div class="form-group row">
-                                    <label for="fname" class="col-sm-3 text-right control-label col-form-label">Last name</label>
+                                    <label for="fname" class="col-sm-3 text-right control-label col-form-label">Prezime</label>
                                     <div class="col-sm-9">
-                                        <input type="text" name="lname" class="form-control" id="username" placeholder="Enter a last name">
-                                    </div>
-                                </div>
-                                <div class="form-group row">
-                                    <label for="fname" class="col-sm-3 text-right control-label col-form-label">File Upload</label>
-                                    <div class="col-md-9">
-                                        <div class="custom-file">
-                                            <input type="file" name="image" class="custom-file-input">
-                                            <label class="custom-file-label">Choose file...</label>
-                                            <div class="invalid-feedback">Example invalid custom file feedback</div>
-                                        </div>
+                                        <input type="text" name="lname" class="form-control" id="username" placeholder="Unesite prezime">
                                     </div>
                                 </div>
                                 <div class="form-group row">
                                     <label for="lname" class="col-sm-3 text-right control-label col-form-label">Email</label>
                                     <div class="col-sm-9">
-                                        <input type="text" name="email" class="form-control" id="fname" placeholder="Enter email address">
+                                        <input type="text" name="email" class="form-control" id="fname" placeholder="Unesite email adresu">
                                     </div>
                                 </div>
                                 <div class="form-group row">
-                                    <label for="lname" class="col-sm-3 text-right control-label col-form-label">Phone number</label>
+                                    <label for="lname" class="col-sm-3 text-right control-label col-form-label">Broj telefona</label>
                                     <div class="col-sm-9">
                                         <input type="text" name="phone" class="form-control" id="lname" placeholder="Enter phone number">
                                     </div>
                                 </div>
                                 <div class="form-group row">
-                                    <label for="lname" class="col-sm-3 text-right control-label col-form-label">Address</label>
+                                    <label for="lname" class="col-sm-3 text-right control-label col-form-label">Adresa</label>
                                     <div class="col-sm-9">
                                         <input type="text" name="address" class="form-control" id="lname" placeholder="Enter address">
                                     </div>
@@ -145,7 +135,7 @@
             </div>
         </div>
         <footer class="footer text-center">
-            All Rights Reserved by Khoz Informatics Pvt. Ltd. Designed and Developed by <a href="https://khozinfo.com/">Khozinfo</a>.
+
         </footer>
     </div>
 

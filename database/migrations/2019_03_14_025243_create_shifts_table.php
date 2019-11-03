@@ -17,6 +17,8 @@ class CreateShiftsTable extends Migration
             $table->bigIncrements('id');
             $table->timestamps();
             $table->string('shift');
+            $table->string('start');
+            $table->string('end');
         });
     }
 

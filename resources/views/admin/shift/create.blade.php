@@ -18,12 +18,12 @@
         <div class="page-breadcrumb">
             <div class="row">
                 <div class="col-12 d-flex no-block align-items-center">
-                    <h4 class="page-title">Shift</h4>
+                    <h4 class="page-title">Smena</h4>
                     <div class="ml-auto text-right">
                         <nav aria-label="breadcrumb">
                             <ol class="breadcrumb">
-                                <li class="breadcrumb-item"><a href="{{route('dashboard')}}">Home</a></li>
-                                <li class="breadcrumb-item active" aria-current="page"><a href="{{route('shift')}}">Shift</a></li>
+                                <li class="breadcrumb-item"><a href="{{route('dashboard')}}">Pocetna</a></li>
+                                <li class="breadcrumb-item active" aria-current="page"><a href="{{route('shift')}}">Smena</a></li>
                             </ol>
                         </nav>
                     </div>
@@ -38,17 +38,29 @@
                         <form action="{{route('shift.store')}}" method="post" class="form-horizontal">
                             @csrf
                             <div class="card-body">
-                                <h4 class="card-title">Shift</h4>
+                                <h4 class="card-title">Smena</h4>
                                 <div class="form-group row">
-                                    <label for="fname" class="col-sm-3 text-right control-label col-form-label">Shift type</label>
+                                    <label for="fname" class="col-sm-3 text-right control-label col-form-label">Ime</label>
                                     <div class="col-sm-9">
-                                        <input type="text" name="shift" class="form-control" id="fname" placeholder="Enter a shift type">
+                                        <input type="text" name="shift" class="form-control" id="shift" placeholder="Unesi ime smene" required>
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label for="fname" class="col-sm-3 text-right control-label col-form-label">Pocetak</label>
+                                    <div class="col-sm-9">
+                                        <input type="text" name="start" class="form-control" id="start" placeholder="Unesi pocetaka smene u formatu 08:00" required>
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label for="fname" class="col-sm-3 text-right control-label col-form-label">Kraj smene</label>
+                                    <div class="col-sm-9">
+                                        <input type="text" name="end" class="form-control" id="end" placeholder="Unesi rkaj smene u formatu 12:00" required>
                                     </div>
                                 </div>
                             </div>
                             <div class="border-top">
                                 <div class="card-body">
-                                    <button type="submit" class="btn btn-dark">Add</button>
+                                    <button type="submit" class="btn btn-dark">Dodaj</button>
                                 </div>
                             </div>
                         </form>
@@ -57,7 +69,7 @@
             </div>
         </div>
         <footer class="footer text-center">
-            All Rights Reserved by Khoz Informatics Pvt. Ltd. Designed and Developed by <a href="https://khozinfo.com/">Khozinfo</a>.
+
         </footer>
     </div>
 

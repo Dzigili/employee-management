@@ -37,11 +37,23 @@
                         <form action="{{route('shift.update',$shift -> id)}}" method="post" class="form-horizontal">
                             @csrf
                             <div class="card-body">
-                                <h4 class="card-title">Shift type</h4>
+                                <h4 class="card-title">Ime smene</h4>
                                 <div class="form-group row">
-                                    <label for="fname" class="col-sm-3 text-right control-label col-form-label">Shift</label>
+                                    <label for="fname" class="col-sm-3 text-right control-label col-form-label">Ime smene</label>
                                     <div class="col-sm-9">
                                         <input type="text" name="shift" class="form-control" id="fname" value="{{$shift -> shift}}">
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label for="fname" class="col-sm-3 text-right control-label col-form-label">Pocetak</label>
+                                    <div class="col-sm-9">
+                                        <input type="text" name="start" class="form-control" id="start" placeholder="Unesi pocetaka smene u formatu 08:00" required value="{{$shift->start}}">
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label for="fname" class="col-sm-3 text-right control-label col-form-label">Kraj smene</label>
+                                    <div class="col-sm-9">
+                                        <input type="text" name="end" class="form-control" id="end" placeholder="Unesi rkaj smene u formatu 12:00" required value="{{$shift->end}}">
                                     </div>
                                 </div>
                             </div>
@@ -56,7 +68,7 @@
             </div>
         </div>
         <footer class="footer text-center">
-            All Rights Reserved by Khoz Informatics Pvt. Ltd. Designed and Developed by <a href="https://khozinfo.com/">Khozinfo</a>.
+
         </footer>
     </div>
 

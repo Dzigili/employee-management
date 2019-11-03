@@ -48,5 +48,9 @@ class User extends Authenticatable
         $query = $this->db->get("users");
         return $query->result();
 
+}
+
+    public function job() {
+        return $this->hasOne('App\Job');
     }
 }

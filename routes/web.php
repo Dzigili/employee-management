@@ -120,6 +120,7 @@ Route::group(['middleware' => 'auth'], function (){
     Route::match(['get','match'],        'update-password',           [ 'as'=>'update.password',           'uses' => 'ProfileController@updatePassword']);
 
     Route::get('downloads',                 [ 'as'=>'download',                   'uses' => 'DownloadController@index']);
+    Route::get('logout',                 [ 'as'=>'logout',                   'uses' => 'Auth\LoginController@logout']);
 
 });
 Auth::routes();

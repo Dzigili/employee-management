@@ -28,7 +28,7 @@
                     <div class="ml-auto text-right">
                         <nav aria-label="breadcrumb">
                             <ol class="breadcrumb">
-                                <li class="breadcrumb-item"><a href="{{route('dashboard')}}">Home</a></li>
+                                <li class="breadcrumb-item"><a href="{{route('dashboard')}}">Pocetna strana</a></li>
                                 <li class="breadcrumb-item active" aria-current="page"><a href="{{route('city')}}">City</a></li>
                             </ol>
                         </nav>
@@ -69,7 +69,7 @@
             </div>
         </div>
         <footer class="footer text-center">
-            All Rights Reserved by Khoz Informatics Pvt. Ltd. Designed and Developed by <a href="https://khozinfo.com/">Khozinfo</a>.
+           
         </footer>
     </div>
 
